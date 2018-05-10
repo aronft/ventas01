@@ -1,3 +1,3 @@
 # ventas01
 
-Ventas01 es un ejemplod basico de un carrito.
+Ventas01 es un ejemplo básico de un carrito.
