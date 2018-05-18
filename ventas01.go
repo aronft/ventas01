@@ -1,18 +1,31 @@
 package main
 
 import (
-	"github.com/blazte/Ventas01/controllers"
-	"github.com/blazte/Ventas01/models"
+	"fmt"
+	"log"
+	"net/http"
+
+	"github.com/blazte/10-PracticeProject/Ventas01/routes"
+	"github.com/urfave/negroni"
 )
 
 func main() {
-	var c models.Cliente
+	//Inicia las rutas
+	router := routes.InitRoutes()
 
-	c = models.Cliente{
-		Dni:       "1231",
-		Nombres:   "Aron",
-		Apellidos: "Flores",
+	//Inicia los middlewares
+
+	n := negroni.Classic()
+	n.UseHandler(router)
+
+	//Inicia el servidor
+
+	server := &http.Server{
+		Addr:    ":8080",
+		Handler: n,
 	}
 
-	controllers.CrearClienteController(c)
+	log.Println("Iniciado el servidor en http://localhost:8080")
+	fmt.Println(server.ListenAndServe())
+	log.Println("finalizó la ejecucuin del programa")
 }

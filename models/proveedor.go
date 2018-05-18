@@ -3,7 +3,7 @@ package models
 import (
 	"log"
 
-	"github.com/blazte/Ventas01/configuration"
+	"github.com/blazte/10-PracticeProject/Ventas01/configuration"
 )
 
 //Proveedor es la estructura de proveedores de la BD
